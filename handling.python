@@ -1,3 +1,0 @@
-File=("my first file","r")
-File.open()
-File.close()
