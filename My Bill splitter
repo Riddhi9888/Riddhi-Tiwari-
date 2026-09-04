@@ -1,0 +1,52 @@
+
+
+print("="*65)
+
+name="*****Bill splitter*****"
+print(f"{name:^63}")
+print("="*65)
+# Name PLUG
+name = input("Enter your name: ")
+print(f"Hi {name}, your name length is {len(name)}\n")
+
+try:
+    bill = float(input("Enter total bill amount: "))
+    discount_percent = float(input("Enter discount % (0 if none): "))
+    tip_percent = float(input("Enter Tip percentage: "))
+    gst_percent = float(input("Enter GST % (0 if none): "))
+    friends = int(input("How many people? "))
+
+    if friends <= 0:
+        print("Error: Friends are more than 1!")
+    else:
+        # Calculations
+        discount_amount = bill * discount_percent / 100
+        bill_after_discount = bill - discount_amount
+        
+        gst_amount = bill_after_discount * gst_percent / 100
+        bill_after_gst = bill_after_discount + gst_amount
+        
+        tip_amount = bill_after_gst * tip_percent / 100
+        total_bill = bill_after_gst + tip_amount
+        
+        per_person = total_bill / friends
+
+        # Output
+        
+   print("\n$$$--- Bill Summary --- $$$\n")
+     
+   print(f"Original Bill: Rs {bill:.2f}")
+   print(f"Discount ({discount_percent}%): -Rs {discount_amount:.2f}")
+        print(f"GST ({gst_percent}%): +Rs {gst_amount:.2f}")
+        print(f"Tip Amount ({tip_percent}%): +Rs {tip_amount:.2f}")
+        print(f"Total Bill with Tip: Rs {total_bill:.2f}")
+        print(f"Each Person Pays: Rs {per_person:.2f} (Rounded: Rs {round(per_person)} )")
+
+except ValueError:
+    print("Error: Please number only text is not allowed !")
+    
+    
+print("*"*65)
+str="###  THANK YOU --- VISIT AGAIN  ###"
+print(f"{str :^65}")
+print("*"*65)
